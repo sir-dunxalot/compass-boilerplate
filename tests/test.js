@@ -27,3 +27,10 @@ if (!formattedResults) {
 /* Then run the test suite */
 
 sassTrue.runSass({ file: dummyFilePath }, describe, it);
+
+/* And add a warning about linting errors incase the test
+output is long */
+
+if (!!formattedResults) {
+  console.log(chalk.yellow('Don\'t forget to fix your linting errors (scroll up)'));
+}
