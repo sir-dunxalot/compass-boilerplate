@@ -1,0 +1,14 @@
+@function is-bright($color) {
+  $yiq: ( (red($color) * 299) + (green($color) * 587) + (blue($color) * 114) ) / 1000;
+
+  /*
+  128 is half of 256 (max brightness as perceived by the human eye)
+  Thus, if backgorund is more than half lightness (closer to 256 than 0), make the text dark
+  */
+
+  @if ($yiq >= 128) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}

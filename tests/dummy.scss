@@ -1,18 +1,14 @@
 @import "true";
 @import "../lib/compass-boilerplate";
 
-@include test-module('Utilities') {
+@include test-module('Dependencies') {
 
-  @include test('Font Size [mixin]') {
-    @include assert('Some random test') {
-      @include input {
-        @include font-size;
-      }
+  @include test('The compass mixins library should be imported') {
+    $list: ('a', 'b', 'c');
+    $actual: -compass-nth($list, 2);
+    $expected: 'b';
 
-      @include expect {
-        color: green;
-      }
-    }
+    @include assert-equal($actual, $expected);
   }
 
 }
