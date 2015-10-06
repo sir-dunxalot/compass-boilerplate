@@ -1,0 +1,15 @@
+@include test-module('Dependencies') {
+
+  /* Use -compass-nth as an indicator for whether the library is
+  present. If $actual returns a string, compass is likely not
+  being imported correctly */
+
+  @include test('The compass mixins library should be imported') {
+    $list: ('a', 'b', 'c');
+    $actual: -compass-nth($list, 2);
+    $expected: 'b';
+
+    @include assert-equal($actual, $expected);
+  }
+
+}

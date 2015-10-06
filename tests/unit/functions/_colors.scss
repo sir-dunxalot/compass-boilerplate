@@ -1,0 +1,30 @@
+@include test-module('Function: colors/is-bright') {
+
+  @include test('Black should not be detected as bright') {
+    $actual: is-bright(#000);
+    $expected: false;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('#666 should be detected as dark') {
+    $actual: is-bright(#666);
+    $expected: false;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('#999 should be detected as bright') {
+    $actual: is-bright(#999);
+    $expected: true;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('White should be detected as bright') {
+    $actual: is-bright(#fff);
+    $expected: true;
+
+    @include assert-equal($actual, $expected);
+  }
+}
