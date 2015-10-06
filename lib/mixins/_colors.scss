@@ -1,0 +1,14 @@
+/* A variation of http://compass-style.org/reference/compass/utilities/color/contrast/
+
+Uses the YIQ-based brightness check.
+*/
+
+@mixin contrast-color-yiq($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default) {
+  background-color: $color;
+
+  @if (is-bright($color) == true) {
+    color: $dark;
+  } @else {
+    color: $light;
+  }
+}

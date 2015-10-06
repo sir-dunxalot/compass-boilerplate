@@ -1,0 +1,60 @@
+@include test-module('Mixins: colors') {
+
+  @include test('contrast-color-yiq') {
+
+    @include assert('Black should return white text by default') {
+      $color: #fff;
+
+      @include input {
+        @include contrast-color-yiq($color);
+      }
+
+      @include expect {
+        background-color: $color;
+        color: #000;
+      }
+    }
+
+    @include assert('White should return black text by default') {
+      $color: #000;
+
+      @include input {
+        @include contrast-color-yiq($color);
+      }
+
+      @include expect {
+        background-color: $color;
+        color: #fff;
+      }
+    }
+
+    @include assert('Should accept text color override for light') {
+      $color: #000;
+      $lightTextColor: #ff0000;
+
+      @include input {
+        @include contrast-color-yiq($color, $light: $lightTextColor);
+      }
+
+      @include expect {
+        background-color: $color;
+        color: $lightTextColor;
+      }
+    }
+
+    @include assert('Should accept text color override for dark') {
+      $color: #fff;
+      $darkTextColor: #ff0000;
+
+      @include input {
+        @include contrast-color-yiq($color, $dark: $darkTextColor);
+      }
+
+      @include expect {
+        background-color: $color;
+        color: $darkTextColor;
+      }
+    }
+  }
+
+}
