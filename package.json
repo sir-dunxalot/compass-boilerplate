@@ -1,0 +1,42 @@
+{
+  "name": "compass-boilerplate",
+  "version": "0.1.0",
+  "description": "The foundation for clean, compass-based stylesheets, powered by Libsass.",
+  "main": "lib/_compass-boilerplate.scss",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sir-dunxalot/compass-boilerplate.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "compass",
+    "boilerplate",
+    "css"
+  ],
+  "author": {
+    "name": "Duncan Walker",
+    "email": "walkerdu@bc.edu",
+    "url": "https://github.com/sir-dunxalot"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sir-dunxalot/compass-boilerplate/issues"
+  },
+  "homepage": "https://github.com/sir-dunxalot/compass-boilerplate#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "node-sass": "^3.3.3",
+    "sass-true": "^2.0.2"
+  }
+}
