@@ -1,3 +1,8 @@
+Compass Boilerplate [![Build Status](https://travis-ci.org/sir-dunxalot/compass-boilerplate.svg?branch=master)](https://travis-ci.org/sir-dunxalot/compass-boilerplate)
+======
+
+WIP - do not use yet.
+
 TODOs
 ------
 
