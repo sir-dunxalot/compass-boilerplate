@@ -1,0 +1,9 @@
+@function first($list) {
+  @return nth($list, 1);
+}
+
+@function last($list) {
+  $length: length($list);
+
+  @return nth($list, $length);
+}

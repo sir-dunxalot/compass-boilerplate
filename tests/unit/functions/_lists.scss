@@ -1,0 +1,20 @@
+@include test-module('Function: lists/first') {
+  $first: 'a';
+  $last: 'c';
+  $list: $first, 'b', $last;
+
+  @include test('Should return the first item in the list') {
+    $actual: first($list);
+    $expected: $first;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should return the last item in the list') {
+    $actual: last($list);
+    $expected: $last;
+
+    @include assert-equal($actual, $expected);
+  }
+
+}
