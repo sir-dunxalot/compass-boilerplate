@@ -1,0 +1,31 @@
+@include test-module('Function: numbers/strip-unit') {
+
+  @include test('Should remove pixels') {
+    $actual: strip-unit(10px);
+    $expected: 10;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should remove rem') {
+    $actual: strip-unit(10rem);
+    $expected: 10;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should remove percent') {
+    $actual: strip-unit(10%);
+    $expected: 10;
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should remove vh') {
+    $actual: strip-unit(10vh);
+    $expected: 10;
+
+    @include assert-equal($actual, $expected);
+  }
+
+}
