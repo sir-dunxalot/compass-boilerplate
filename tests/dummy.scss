@@ -1,1 +1,18 @@
+@import "true";
 @import "../lib/compass-boilerplate";
+
+@include test-module('Utilities') {
+
+  @include test('Font Size [mixin]') {
+    @include assert('Some random test') {
+      @include input {
+        @include font-size;
+      }
+
+      @include expect {
+        color: green;
+      }
+    }
+  }
+
+}
