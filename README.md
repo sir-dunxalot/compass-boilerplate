@@ -8,3 +8,5 @@ TODOs
 
 - Options for using rem, etc
 - Option for modernizr boolean
+- Normalize, etc
+- Rem calculation based on base size

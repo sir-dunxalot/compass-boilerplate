@@ -1,4 +1,4 @@
-@include test-module('Function: numbers/strip-unit') {
+@include test-module('Function: units/strip-unit') {
 
   @include test('Should remove pixels') {
     $actual: strip-unit(10px);

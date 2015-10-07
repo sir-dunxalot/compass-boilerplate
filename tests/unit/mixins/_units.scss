@@ -1,0 +1,46 @@
+@include test-module('Mixins: units') {
+
+  @include test('rem') {
+
+    @include assert('Should return rem and fallback pixels for single number') {
+      $property: height;
+      $number: 4;
+
+      @include input {
+        @include rem($property, $number);
+      }
+
+      @include expect {
+        #{$property}: #{$number * 10}px;
+        #{$property}: #{$number}rem;
+      }
+    }
+
+    @include assert('Should return rem and fallback pixels for single number with units') {
+      $property: height;
+      $number: 4rem;
+
+      @include input {
+        @include rem($property, $number);
+      }
+
+      @include expect {
+        #{$property}: 40px;
+        #{$property}: #{$number};
+      }
+    }
+
+    @include assert('Should return rem and fallback pixels for multiple numbers') {
+      $property: margin;
+
+      @include input {
+        @include rem($property, 4, 3);
+      }
+
+      @include expect {
+        #{$property}: 40px 30px;
+        #{$property}: 4rem 3rem;
+      }
+    }
+  }
+}
