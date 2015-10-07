@@ -1,0 +1,45 @@
+/* These are tested simply by making sure the other tests pass */
+
+/*
+https://github.com/Igosuki/compass-mixins/issues/43
+
+Hack until compass-mixins is synced up with new libsass
+*/
+
+@function -owg($property) {
+  @return -moz-#{$property};
+}
+
+@function -webkit($property) {
+  @return -webkit-#{$property};
+}
+
+@function -moz($property) {
+  @return -moz-#{$property};
+}
+
+@function -ms($property) {
+  @return -ms-#{$property};
+}
+
+@function -o($property) {
+  @return -o-#{$property};
+}
+
+/*
+https://github.com/Igosuki/compass-mixins/issues/34
+
+Hack until compass-mixins is synced up with new libsass
+*/
+
+@function compact($vars...) {
+  $list: ();
+
+  @each $var in $vars {
+    @if $var {
+      $list: append($list, $var, comma);
+    }
+  }
+
+  @return $list;
+}

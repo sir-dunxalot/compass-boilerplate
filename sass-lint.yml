@@ -2,3 +2,4 @@ rules:
   no-color-literals: 0
   no-color-keywords: 0
   no-css-comments: 0
+  mixins-before-declarations: 0

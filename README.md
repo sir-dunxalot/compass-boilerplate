@@ -7,4 +7,4 @@ TODOs
 ------
 
 - Options for using rem, etc
-- Travis integration
+- Option for modernizr boolean

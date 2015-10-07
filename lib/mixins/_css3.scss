@@ -1,0 +1,47 @@
+@mixin ie-compatible-background-gradient($color, $from, $stops...) {
+  $firstStopColor: first($stops);
+  $lastStopColor: last($stops);
+  $fallbackDir: null;
+
+  @if (length($from) > 1) {
+    $fallbackDir: horizontal;
+  } @else if ($from == 'left') {
+    $fallbackDir: horizontal;
+  } @else if ($from == 'right') {
+    $fallbackDir: horizontal;
+
+    $firstStopColor: last($stops);
+    $lastStopColor: first($stops);
+  } @else if ($from == 'top') {
+    $fallbackDir: vertical;
+
+    $firstStopColor: last($stops);
+    $lastStopColor: first($stops);
+  } @else {
+    $fallbackDir: vertical;
+  }
+
+  /* Fallback color */
+
+  background-color: $color;
+
+  /* IE 5.5-9 filter fallback */
+
+  @include filter-gradient($firstStopColor, $lastStopColor, $fallbackDir);
+
+  /* CSS3 gradients */
+
+  background-image: -ms-linear-gradient($from, $stops); // IE11
+  @include background-image(linear-gradient($from, $stops)); // Modern browsers
+}
+
+/*
+Cross-browser gradient text
+*/
+
+@mixin gradient-text($fallbackColor, $from, $stops...) {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: -webkit-linear-gradient($from, $stops);
+  color: $fallbackColor;
+}

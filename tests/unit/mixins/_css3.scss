@@ -1,0 +1,94 @@
+@include test-module('Mixins: CSS3') {
+
+  @include test('ie-compatible-background-gradient') {
+
+    @include assert('Should return a gradient with IE support for a horizontal gradient from left') {
+      $start: #fff;
+      $end: #000;
+      $from: left;
+
+      @include input {
+        @include ie-compatible-background-gradient($start, $from, $start, $end);
+      }
+
+      @include expect {
+        background-color: $start;
+        @include filter-gradient($start, $end, horizontal);
+        background-image: -ms-linear-gradient($from, $start, $end);
+        @include background-image(linear-gradient($from, $start, $end));
+      }
+    }
+
+    @include assert('Should return a gradient with IE support for a horizontal gradient from right') {
+      $start: #fff;
+      $end: #000;
+      $from: right;
+
+      @include input {
+        @include ie-compatible-background-gradient($start, $from, $start, $end);
+      }
+
+      @include expect {
+        background-color: $start;
+        @include filter-gradient($end, $start, horizontal);
+        background-image: -ms-linear-gradient($from, $start, $end);
+        @include background-image(linear-gradient($from, $start, $end));
+      }
+    }
+
+    @include assert('Should return a gradient with IE support for a vertical gradient from top') {
+      $start: #fff;
+      $end: #000;
+      $from: top;
+
+      @include input {
+        @include ie-compatible-background-gradient($start, $from, $start, $end);
+      }
+
+      @include expect {
+        background-color: $start;
+        @include filter-gradient($end, $start, vertical);
+        background-image: -ms-linear-gradient($from, $start, $end);
+        @include background-image(linear-gradient($from, $start, $end));
+      }
+    }
+
+    @include assert('Should return a gradient with IE support for a vertical gradient from bottom') {
+      $start: #fff;
+      $end: #000;
+      $from: bottom;
+
+      @include input {
+        @include ie-compatible-background-gradient($start, $from, $start, $end);
+      }
+
+      @include expect {
+        background-color: $start;
+        @include filter-gradient($start, $end, vertical);
+        background-image: -ms-linear-gradient($from, $start, $end);
+        @include background-image(linear-gradient($from, $start, $end));
+      }
+    }
+  }
+
+  @include test('gradient-text') {
+
+    @include assert('Should return gradient text styling') {
+      $start: #fff;
+      $end: #000;
+      $from: left;
+
+      @include input {
+        @include gradient-text($start, $from, $start, $end);
+      }
+
+      @include expect {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: -webkit-linear-gradient($from, $start, $end);
+        color: $start;
+      }
+    }
+  }
+
+}
