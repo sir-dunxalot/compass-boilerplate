@@ -91,4 +91,105 @@
     }
   }
 
+  @include test('placeholder') {
+
+    @include assert('Should return cross-browser placeholder styling') {
+
+      @include input {
+        .test-input {
+          @include placeholder {
+            @include inline-block;
+          }
+        }
+      }
+
+      @include expect {
+        .test-input {
+          &.placeholder { @include inline-block; }
+
+          &:-moz-placeholder { @include inline-block; }
+
+          &::-moz-placeholder { @include inline-block; }
+
+          &:-ms-input-placeholder { @include inline-block; }
+
+          &::-webkit-input-placeholder { @include inline-block; }
+        }
+      }
+    }
+  }
+
+  @include test('filter') {
+
+    @include assert('Should return CSS filter') {
+      $style: blur(5px);
+
+      @include input {
+        @include filter($style);
+      }
+
+      @include expect {
+        -webkit-filter: $style;
+        filter: $style;
+      }
+    }
+  }
+
+  @include test('animation') {
+
+    @include assert('Should return s cross-browser aniamtion') {
+      $animation: fake-animation-name 3s;
+
+      @include input {
+        @include animation($animation);
+      }
+
+      @include expect {
+        -moz-animation: $animation;
+        -webkit-animation: $animation;
+        animation: $animation;
+      }
+    }
+  }
+
+  @include test('keyframes') {
+
+    @include assert('Should return cross-browser keyframes') {
+      $name: fake-animation-name;
+
+      @include input {
+        @include keyframes($name) {
+          0% {
+            color: red;
+          }
+        }
+      }
+
+      @include expect {
+        @-webkit-keyframes #{$name} {
+          0% {
+            color: red;
+          }
+        }
+
+        @-moz-keyframes #{$name} {
+          0% {
+            color: red;
+          }
+        }
+
+        @-o-keyframes #{$name} {
+          0% {
+            color: red;
+          }
+        }
+
+        @keyframes #{$name} {
+          0% {
+            color: red;
+          }
+        }
+      }
+    }
+  }
 }
