@@ -1,7 +1,17 @@
 Compass Boilerplate [![Build Status](https://travis-ci.org/sir-dunxalot/compass-boilerplate.svg?branch=master)](https://travis-ci.org/sir-dunxalot/compass-boilerplate)
 ======
 
-WIP - do not use yet.
+**Early stage development - not ready for production.**
+
+Compass Boilerplate gives you the tools to write extendible SASS in any new [libsass](https://github.com/sass/libsass)-based project.
+
+You get:
+
+- [Compass mixins](https://github.com/Igosuki/compass-mixins)
+- Utility mixins
+- Utility functions
+- Common placeholders
+- Optional HTML5BP and Normalize imports
 
 TODOs
 ------

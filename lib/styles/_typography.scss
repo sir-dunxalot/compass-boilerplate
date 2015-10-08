@@ -1,0 +1,13 @@
+@if ($useRemLayout == true) {
+  html {
+    font-size: $baseFontSize * 0.9;
+
+    @include medium {
+      font-size: $baseFontSize;
+    }
+  }
+
+  body {
+    @include rem(font-size, $bodyFontSize);
+  }
+}
