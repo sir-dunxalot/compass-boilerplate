@@ -1,0 +1,15 @@
+@mixin table {
+  @extend %full-width;
+  @extend %full-width__max;
+  border-collapse: collapse;
+  display: table;
+}
+
+@mixin cell {
+  @extend %align__middle;
+  display: table-cell;
+}
+
+@mixin row {
+  display: table-row;
+}

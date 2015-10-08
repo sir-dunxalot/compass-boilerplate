@@ -1,0 +1,195 @@
+%full-height {
+  height: 100%;
+}
+
+%full-width {
+  width: 100%;
+}
+
+%full-height__viewport {
+  height: 100vh;
+}
+
+%full-width__viewport {
+  width: 100vw;
+}
+
+%full-width__max {
+  max-width: 100%;
+}
+
+%nowrap {
+  white-space: nowrap;
+}
+
+%border-box {
+  @include box-sizing(border-box);
+}
+
+%relative {
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%static {
+  position: static;
+}
+
+/* Use mixins for display placeholders so we can easily
+overwrite them in media queries */
+
+%temporarily-hidden {
+  @include temporarily-hidden;
+}
+
+%table {
+  @include table;
+}
+
+%row {
+  @include row;
+}
+
+%cell {
+  @include cell;
+}
+
+%inline-block {
+  @include inline-block;
+}
+
+%align__middle {
+  vertical-align: middle;
+}
+
+%align__top {
+  vertical-align: top;
+}
+
+%block {
+  display: block;
+}
+
+%no-content {
+  content: '';
+}
+
+%full-size-pseudo {
+  @extend %no-content;
+  @extend %absolute;
+  @extend %full-height;
+  @extend %full-width;
+  @extend %top;
+  @extend %left;
+}
+
+%align__left {
+  text-align: left;
+}
+
+%align__center {
+  text-align: center;
+}
+
+%align__right {
+  text-align: right;
+}
+
+%terrace {
+  font-size: 0;
+
+  & > * {
+    @include rem(font-size, $bodyFontSize);
+  }
+}
+
+%not-allowed {
+  cursor: not-allowed;
+}
+
+%no-pointer-events {
+  pointer-events: none;
+}
+
+%use-hardware-acceleration {
+  @include transform(translateZ(0)); // Hardware acceleration
+  @include backface-visibility;
+}
+
+%top {
+  top: 0;
+}
+
+%right {
+  right: 0;
+}
+
+%bottom {
+  bottom: 0;
+}
+
+%left {
+  left: 0;
+}
+
+%pad {
+  @extend %border-box;
+  @include rem(padding, $spacing);
+}
+
+%space {
+  @include rem(margin-top, $spacing);
+  @include rem(margin-bottom, $spacing);
+}
+
+%auto-margin {
+  margin: 0 auto;
+}
+
+%no-margin {
+  margin: 0;
+}
+
+%no-padding {
+  padding: 0;
+}
+
+%no-border {
+  border: 0;
+}
+
+%no-outline {
+  outline: none;
+}
+
+%pointer {
+  cursor: pointer;
+}
+
+%overflow__hidden {
+  @extend %hide-scrollbars;
+  overflow: hidden;
+}
+
+%overflow__scroll {
+  overflow: scroll;
+}
+
+%hide-scrollbars {
+  -ms-overflow-style: none;
+}
+
+%fade {
+  @include transition(opacity $fast);
+}
+
+%fade__slow {
+  @include transition(opacity $slow);
+}

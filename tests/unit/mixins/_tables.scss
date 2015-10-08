@@ -1,0 +1,45 @@
+@include test-module('Mixins: tables') {
+
+  @include test('table') {
+
+    @include assert('Should add boilerplate table styling') {
+
+      @include input {
+        @include table;
+      }
+
+      @include expect {
+        border-collapse: collapse;
+        display: table;
+      }
+    }
+  }
+
+  @include test('cell') {
+
+    @include assert('Should add boilerplate table cell styling') {
+
+      @include input {
+        @include cell;
+      }
+
+      @include expect {
+        display: table-cell;
+      }
+    }
+  }
+
+  @include test('row') {
+
+    @include assert('Should add boilerplate table row styling') {
+
+      @include input {
+        @include row;
+      }
+
+      @include expect {
+        display: table-row;
+      }
+    }
+  }
+}

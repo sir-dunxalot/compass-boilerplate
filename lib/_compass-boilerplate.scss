@@ -1,6 +1,6 @@
 @import 'bower_components/compass-mixins/lib/compass';
 
-@import 'variables';
+@import 'core/variables';
 
 @import 'functions/colors';
 @import 'functions/lists';
@@ -10,4 +10,8 @@
 @import 'mixins/colors';
 @import 'mixins/css3';
 @import 'mixins/media-queries';
+@import 'mixins/tables';
 @import 'mixins/units';
+@import 'mixins/visibility';
+
+@import 'core/placeholders';
