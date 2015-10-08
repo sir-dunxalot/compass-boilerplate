@@ -10,8 +10,14 @@
 @import 'mixins/colors';
 @import 'mixins/css3';
 @import 'mixins/media-queries';
+@import 'mixins/selectors';
 @import 'mixins/tables';
 @import 'mixins/units';
 @import 'mixins/visibility';
 
 @import 'core/placeholders';
+
+/* Vendor can be imported seperately */
+
+// @import 'vendor/normalize';
+// @import 'vendor/html5bp';

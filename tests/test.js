@@ -14,7 +14,7 @@ Ignore _units.scss because of issues like:
 https://github.com/sasstools/sass-lint/issues/210
 */
 
-var results = lint.lintFiles('{lib,tests}/**/!(_units).scss', sassLintOptions, sassLintOptions.configFile);
+var results = lint.lintFiles('{lib,tests}/!(vendor)/!(_units).scss', sassLintOptions, sassLintOptions.configFile);
 var formattedResults = lint.format(results);
 
 /* Log the linting results */

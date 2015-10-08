@@ -1,0 +1,8 @@
+// TODO - Sass 3.3 - http://mikefowler.me/2013/10/17/support-for-bem-modules-sass-3.3/
+// TODO - Sass 3.4 - https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+
+@mixin mod($classBeginsWith) {
+  [class*='#{$classBeginsWith}#{$modifierSeperator}'] {
+    @content;
+  }
+}
