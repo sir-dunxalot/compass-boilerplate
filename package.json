@@ -40,5 +40,8 @@
     "node-sass": "^3.3.3",
     "sass-lint": "^1.2.3",
     "sass-true": "^2.0.2"
+  },
+  "dependencies": {
+    "compass-mixins": "^0.12.7"
   }
 }
