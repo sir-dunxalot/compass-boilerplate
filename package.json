@@ -1,6 +1,6 @@
 {
   "name": "compass-boilerplate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The foundation for clean, compass-based stylesheets, powered by Libsass.",
   "main": "lib/_compass-boilerplate.scss",
   "scripts": {
