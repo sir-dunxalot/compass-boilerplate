@@ -11,8 +11,8 @@ Designates a block.
 This establishes a context that the element and modifier mixins can be used in. It also namespaces all selectors, if desired.
 */
 
-@mixin block($name, $isPublic: false, $enableModifiers: false) {
-  $block: namespace($name);
+@mixin block($name, $enableModifiers: false) {
+  $block: #{get-block-selector($name)};
 
   /* Create the base class (e.g. jebbit-button) */
 
@@ -56,46 +56,32 @@ Becomes:
 
 */
 
-@mixin element($elementName, $nested: true, $enableModifiers: false) {
-  // $elementSelector: null;
+@mixin element($name, $nested: true, $enableModifiers: false) {
+  $elementSelector: #{get-element-selector($name, $nested)};
 
   @if ($nested) {
-    // $elementSelector: #{&#{$wordSeperator}#{$element}};
-
-    &#{$wordSeperator}#{$element} {
+    #{$elementSelector} {
       @content;
     }
   } @else {
-    $selector: last(str-split(#{&})); // Incase selector is nested
-    $splitIndex: str-index($selector, #{$modifierSeperator});
-    $unnestedSelector: null;
-
-    @if ($splitIndex) {
-      $unnestedSelector: str-slice($selector, 0, $splitIndex - 1);
-    } @else {
-      $unnestedSelector: $selector;
-    }
-
-    $elementSelector: #{$unnestedSelector}#{$wordSeperator}#{$elementName};
-
     @at-root #{$elementSelector} {
       @content;
     }
   }
 
-  // @if ($enableModifiers) {
-  //   @at-root [class*='#{$elementSelector}#{$modifierSeperator}'] {
-  //     @extend .#{$elementSelector};
-  //   }
-  // }
+  @if ($enableModifiers) {
+    @at-root [class*='#{$elementSelector}#{$modifierSeperator}'] {
+      @extend .#{$elementSelector};
+    }
+  }
 }
 
 /*
 Adds a modifier to any element or block, which should have $enableModifiers: true; to enable
 */
 
-@mixin modifier($modifier, $seperator: $modifierSeperator) {
-  &#{$seperator}#{$modifier} {
+@mixin modifier($name, $seperator: $modifierSeperator) {
+  #{get-block-selector($name, $seperator)} {
     @content;
   }
 }

@@ -1,0 +1,36 @@
+@include test-module('Function: selectors/get-block-selector') {
+
+  @include test('Should return correct selector') {
+    $actual: get-block-selector('button');
+    $expected: 'button';
+
+    @include assert-equal($actual, $expected);
+  }
+}
+
+@include test-module('Function: selectors/get-element-selector') {
+
+  @include test('Should return correct selector when unnested') {
+    $actual: get-element-selector('text', true);
+    $expected: #{&}#{$wordSeperator}#{'text'};
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should return correct selector when nested') {
+    $actual: get-element-selector('text', true);
+    $expected: #{&}#{$wordSeperator}#{'text'};
+
+    @include assert-equal($actual, $expected);
+  }
+}
+
+@include test-module('Function: selectors/get-modifier-selector') {
+
+  @include test('Should return correct selector') {
+    $actual: get-modifier-selector('primary');
+    $expected: #{&}#{$modifierSeperator}#{'primary'};
+
+    @include assert-equal($actual, $expected);
+  }
+}

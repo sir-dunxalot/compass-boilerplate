@@ -1,0 +1,25 @@
+@function get-block-selector($name) {
+  @return #{namespace($name)};
+}
+
+@function get-element-selector($name, $nested: false) {
+  @if ($nested) {
+    @return #{&}#{$wordSeperator}#{$name};
+  } @else {
+    $selector: last(str-split(#{&})); // Incase selector is nested
+    $splitIndex: str-index($selector, #{$modifierSeperator});
+    $unnestedSelector: null;
+
+    @if ($splitIndex) {
+      $unnestedSelector: str-slice($selector, 0, $splitIndex - 1);
+    } @else {
+      $unnestedSelector: $selector;
+    }
+
+    @return #{$unnestedSelector}#{$wordSeperator}#{$name};
+  }
+}
+
+@function get-modifier-selector($modifier, $seperator: $modifierSeperator) {
+  @return #{&}#{$seperator}#{$modifier};
+}
