@@ -1,0 +1,23 @@
+$namespace: 'peacock'; // Set namespace
+
+@include test-module('Function: namespacing/namespace with namespace') {
+
+  @include test('Should namespace a selector') {
+    $actual: namespace('button');
+    $expected: #{peacock}#{$wordSeperator}#{button};
+
+    @include assert-equal($actual, $expected);
+  }
+}
+
+$namespace: false; // Reset for the rest of the tests
+
+@include test-module('Function: namespacing/namespace without namespace') {
+
+  @include test('Should do nothing without $namespace') {
+    $actual: namespace('button');
+    $expected: 'button';
+
+    @include assert-equal($actual, $expected);
+  }
+}

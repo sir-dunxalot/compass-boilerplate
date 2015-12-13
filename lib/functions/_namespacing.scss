@@ -8,8 +8,10 @@ $namespace: 'google';
 ```
 */
 
-@function namespace($name, $isPublic: false) {
+@function namespace($name) {
   $selector: null;
+
+  @warn($namespace);
 
   @if ($namespace) {
     $selector: #{$namespace}#{$wordSeperator}#{$name};
@@ -17,5 +19,5 @@ $namespace: 'google';
     $selector: $name;
   }
 
-  @return #{$name};
+  @return #{$selector};
 }
