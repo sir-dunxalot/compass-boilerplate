@@ -1,0 +1,23 @@
+@include test-module('Function: strings/str-split') {
+
+  @include test('Should split space-seperated string') {
+    $actual: str-split('hello my friend');
+    $expected: ('hello' 'my' 'friend');
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should not split hyphen-seperated word') {
+    $actual: str-split('hello-my-friend hi');
+    $expected: ('hello-my-friend' 'hi');
+
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('Should accept a seperator param') {
+    $actual: str-split('hello-my-friend', '-');
+    $expected: ('hello' 'my' 'friend');
+
+    @include assert-equal($actual, $expected);
+  }
+}

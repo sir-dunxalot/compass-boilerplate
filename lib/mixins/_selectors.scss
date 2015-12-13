@@ -1,8 +1,130 @@
-// TODO - Sass 3.3 - http://mikefowler.me/2013/10/17/support-for-bem-modules-sass-3.3/
-// TODO - Sass 3.4 - https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+/*
+Further reading on SASS and BEM:
 
-@mixin mod($classBeginsWith) {
-  [class*='#{$classBeginsWith}#{$modifierSeperator}'] {
+Sass 3.3 - http://mikefowler.me/2013/10/17/support-for-bem-modules-sass-3.3/
+Sass 3.4 - https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+*/
+
+/*
+Designates a block.
+
+This establishes a context that the element and modifier mixins can be used in. It also namespaces all selectors, if desired.
+*/
+
+@mixin block($name, $isPublic: false, $enableModifiers: false) {
+  $block: namespace($name);
+
+  /* Create the base class (e.g. jebbit-button) */
+
+  .#{$block} {
+    @content;
+  }
+
+  /* Make sure modifiers extend the base class (e.g. [class*="jebbit-button__"]) */
+
+  @if ($enableModifiers) {
+    @at-root [class*='#{$block}#{$modifierSeperator}'] {
+      @extend .#{$block};
+    }
+  }
+}
+
+/*
+Designates an element within a block. For example:
+
+```
+@include block('button') {
+  background-color: red;
+
+  @include element('text') {
+    font-style: italic;
+  }
+}
+```
+
+Becomes:
+
+```
+.button {
+  background-color: red;
+}
+
+.button-text {
+  font-style: italic;
+}
+```
+
+*/
+
+@mixin element($elementName, $nested: true, $enableModifiers: false) {
+  // $elementSelector: null;
+
+  @if ($nested) {
+    // $elementSelector: #{&#{$wordSeperator}#{$element}};
+
+    &#{$wordSeperator}#{$element} {
+      @content;
+    }
+  } @else {
+    $selector: last(str-split(#{&})); // Incase selector is nested
+    $splitIndex: str-index($selector, #{$modifierSeperator});
+    $unnestedSelector: null;
+
+    @if ($splitIndex) {
+      $unnestedSelector: str-slice($selector, 0, $splitIndex - 1);
+    } @else {
+      $unnestedSelector: $selector;
+    }
+
+    $elementSelector: #{$unnestedSelector}#{$wordSeperator}#{$elementName};
+
+    @at-root #{$elementSelector} {
+      @content;
+    }
+  }
+
+  // @if ($enableModifiers) {
+  //   @at-root [class*='#{$elementSelector}#{$modifierSeperator}'] {
+  //     @extend .#{$elementSelector};
+  //   }
+  // }
+}
+
+/*
+Adds a modifier to any element or block, which should have $enableModifiers: true; to enable
+*/
+
+@mixin modifier($modifier, $seperator: $modifierSeperator) {
+  &#{$seperator}#{$modifier} {
+    @content;
+  }
+}
+
+/*
+Makes it easier to have per-context styling for a heavily nested selector. For example:
+
+```
+@include block('button') {
+  @include element('text') {
+    @include if-inside('form') {
+      background-color: red;
+    }
+  }
+}
+```
+
+Becomes:
+
+```
+.form .button-text {
+  background-color: red;
+}
+```
+
+*/
+
+@mixin if-inside($name) {
+  .#{namespace($name)} & {
     @content;
   }
 }

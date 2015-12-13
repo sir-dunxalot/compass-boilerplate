@@ -23,3 +23,12 @@ http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
   #{$property}: $pxValues;
   #{$property}: $remValues;
 }
+
+/*
+Sets hight and width to the same value
+*/
+
+@mixin size($rem) {
+  @include rem(height, $rem);
+  @include rem(width, $rem);
+}

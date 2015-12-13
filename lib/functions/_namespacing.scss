@@ -1,0 +1,21 @@
+/*
+Namespaces any CSS selector. For example:
+
+```
+$namespace: 'google';
+
+.#{namespace(button)} --> .google-button
+```
+*/
+
+@function namespace($name, $isPublic: false) {
+  $selector: null;
+
+  @if ($namespace) {
+    $selector: #{$namespace}#{$wordSeperator}#{$name};
+  } @else {
+    $selector: $name;
+  }
+
+  @return #{$name};
+}

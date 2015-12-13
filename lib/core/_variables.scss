@@ -1,26 +1,28 @@
 /* Typography */
 
-$baseFontSize: 62.5%;
-$bodyFontSize: 1.6;
+$baseFontSize: 62.5% !default;
+$bodyFontSize: 1.6 !default;
 
 /* Layout */
 
-$spacing: 3;
-$useRemLayout: true;
+$spacing: 3 !default;
+$useRemLayout: true !default;
 
 /* Media queries */
 
-$small: 37.5em; // 600px
-$medium: 50em; // 800px
-$large: 63.75em; // 1020px
-$extraLarge: 81.25em; // 1200px
+$small: 37.5em !default; // 600px
+$medium: 50em !default; // 800px
+$large: 63.75em !default; // 1020px
+$extraLarge: 81.25em !default; // 1200px
 
 /* Transitions */
 
-$slow: 0.5s;
-$fast: 0.3s;
+$slow: 0.5s !default;
+$fast: 0.3s !default;
 
 /* Selectors */
 
-$wordSeperator: '-';
-$modifierSeperator: '__';
+$wordSeperator: '-' !default;
+$modifierSeperator: '__' !default;
+
+$namespace: false !default;

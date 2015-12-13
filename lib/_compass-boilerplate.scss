@@ -4,7 +4,9 @@
 
 @import 'functions/colors';
 @import 'functions/lists';
+@import 'functions/namespacing';
 @import 'functions/shims';
+@import 'functions/strings';
 @import 'functions/units';
 
 @import 'mixins/colors';
@@ -17,9 +19,13 @@
 
 @import 'core/placeholders';
 
-// @import 'styles/typography'; // HERE
+// @import 'styles/typography'; // BUG
 
-/* Vendor can be imported seperately */
+/* Vendor files can be imported seperately as follows:
 
-// @import 'vendor/normalize';
-// @import 'vendor/html5bp';
+```
+@import 'compass-boilerplate-vendor/normalize';
+@import 'compass-boilerplate-vendor/html5bp';
+```
+
+*/

@@ -6,6 +6,7 @@ var sassTrue = require('sass-true');
 var dummyFilePath = path.join(__dirname, 'tests.scss');
 var sassLintOptions = {
   configFile: 'sass-lint.yml',
+  syntax: 'scss',
 }
 
 /* Lint the lib and test files
@@ -14,19 +15,19 @@ Ignore _units.scss because of issues like:
 https://github.com/sasstools/sass-lint/issues/210
 */
 
-var results = lint.lintFiles('{lib,tests}/!(vendor)/!(_units).scss', sassLintOptions, sassLintOptions.configFile);
-var formattedResults = lint.format(results);
+// var results = lint.lintFiles('{lib,tests}/!(vendor)/!(_units).scss', sassLintOptions, sassLintOptions.configFile);
+// var formattedResults = lint.format(results);
 
-/* Log the linting results */
+// /* Log the linting results */
 
-console.log(chalk.white('  Linting'));
+// console.log(chalk.white('  Linting'));
 
-if (!formattedResults) {
-  console.log(chalk.green('    ✓  No SASS linting errors - you rock!'));
-  console.log('');
-} else {
-  console.log(lint.format(results));
-}
+// if (!formattedResults) {
+//   console.log(chalk.green('    ✓  No SASS linting errors - you rock!'));
+//   console.log('');
+// } else {
+//   console.log(lint.format(results));
+// }
 
 /* Then run the test suite */
 
