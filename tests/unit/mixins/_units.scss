@@ -43,4 +43,20 @@
       }
     }
   }
+
+  @include test('size') {
+    $size: 2;
+
+    @include assert('Should use the rem mixin for height and width') {
+      @include input {
+        @include size($size);
+      }
+
+
+      @include expect {
+        @include rem(height, $size);
+        @include rem(width, $size);
+      }
+    }
+  }
 }
