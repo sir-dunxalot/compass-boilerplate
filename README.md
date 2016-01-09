@@ -6,6 +6,7 @@ The one-line-install foundation for clean, low-specificity, compass-based styles
 - [Installation](#installation)
 - [Example Usage](#example-usage)
 - [Documentation - WIP](#documentation)
+- [Downsides](#downsides)
 - [Development](#development)
 
 ## Installation
@@ -16,7 +17,7 @@ npm install compass-boilerplate
 ```
 
 ```scss
-/* app.scss */
+/* app.scss or other stylesheet */
 
 @import 'compass-boilerplate-vendor/normalize'; // If you want it
 @import 'compass-boilerplate-vendor/html5bp'; // If you want it
@@ -28,11 +29,11 @@ npm install compass-boilerplate
 ```scss
 @import 'compass-boilerplate';
 
-@include block('button', $enableModifiers:true) {
+@include block('button', $enableModifiers: true) {
   @include transform(translateY(2px)); // Access to Compass mixins
   @include rem(padding, 1); // Responsive sizing
 
-  @include element('text', $enableModifiers:true) {
+  @include element('text', $enableModifiers: true) {
     @extend %inline-block; // Common placeholders
 
     @include modifier('italic') {
@@ -98,6 +99,13 @@ If you're not familiar with the BEM approach of organizing CSS selectors, then r
 ### Mixin: Block
 
 `@include block()` sets the context for any block styling. It automatically namespaces nested classes.
+
+## Downsides
+
+There are some downsides to using this package:
+
+- Code becomes less searchable. You can't just search for `button__primary`, you have to find `primary` in `button`.
+- ??
 
 ## Development
 
