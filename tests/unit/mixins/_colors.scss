@@ -5,7 +5,7 @@
     @include assert('Black should return white text by default') {
       $color: #fff;
 
-      @include input {
+      @include output {
         @include contrast-color-yiq($color);
       }
 
@@ -18,7 +18,7 @@
     @include assert('White should return black text by default') {
       $color: #000;
 
-      @include input {
+      @include output {
         @include contrast-color-yiq($color);
       }
 
@@ -32,7 +32,7 @@
       $color: #000;
       $lightTextColor: #ff0000;
 
-      @include input {
+      @include output {
         @include contrast-color-yiq($color, $light: $lightTextColor);
       }
 
@@ -46,7 +46,7 @@
       $color: #fff;
       $darkTextColor: #ff0000;
 
-      @include input {
+      @include output {
         @include contrast-color-yiq($color, $dark: $darkTextColor);
       }
 

@@ -6,7 +6,7 @@
       $property: height;
       $number: 4;
 
-      @include input {
+      @include output {
         @include rem($property, $number);
       }
 
@@ -20,7 +20,7 @@
       $property: height;
       $number: 4rem;
 
-      @include input {
+      @include output {
         @include rem($property, $number);
       }
 
@@ -33,7 +33,7 @@
     @include assert('Should return rem and fallback pixels for multiple numbers') {
       $property: margin;
 
-      @include input {
+      @include output {
         @include rem($property, 4, 3);
       }
 
@@ -48,7 +48,7 @@
     $size: 2;
 
     @include assert('Should use the rem mixin for height and width') {
-      @include input {
+      @include output {
         @include size($size);
       }
 

@@ -7,7 +7,7 @@
       $end: #000;
       $from: left;
 
-      @include input {
+      @include output {
         @include ie-compatible-background-gradient($start, $from, $start, $end);
       }
 
@@ -24,7 +24,7 @@
       $end: #000;
       $from: right;
 
-      @include input {
+      @include output {
         @include ie-compatible-background-gradient($start, $from, $start, $end);
       }
 
@@ -41,7 +41,7 @@
       $end: #000;
       $from: top;
 
-      @include input {
+      @include output {
         @include ie-compatible-background-gradient($start, $from, $start, $end);
       }
 
@@ -58,7 +58,7 @@
       $end: #000;
       $from: bottom;
 
-      @include input {
+      @include output {
         @include ie-compatible-background-gradient($start, $from, $start, $end);
       }
 
@@ -78,7 +78,7 @@
       $end: #000;
       $from: left;
 
-      @include input {
+      @include output {
         @include gradient-text($start, $from, $start, $end);
       }
 
@@ -95,7 +95,7 @@
 
     @include assert('Should return cross-browser placeholder styling') {
 
-      @include input {
+      @include output {
         .test-input {
           @include placeholder {
             @include inline-block;
@@ -124,7 +124,7 @@
     @include assert('Should return CSS filter') {
       $style: blur(5px);
 
-      @include input {
+      @include output {
         @include filter($style);
       }
 
@@ -140,7 +140,7 @@
     @include assert('Should return a cross-browser animation') {
       $animation: fake-animation-name 3s;
 
-      @include input {
+      @include output {
         @include animation($animation);
       }
 
@@ -157,7 +157,7 @@
     @include assert('Should return cross-browser keyframes') {
       $name: fake-animation-name;
 
-      @include input {
+      @include output {
         @include keyframes($name) {
           0% {
             color: red;
@@ -197,7 +197,7 @@
 
     @include assert('Should return s cross-browser transition timing function') {
 
-      @include input {
+      @include output {
         @include ease-out-quint;
       }
 
