@@ -4,7 +4,7 @@
 
     @include assert('Should add boilerplate table styling') {
 
-      @include output {
+      @include input {
         @include table;
       }
 
@@ -19,7 +19,7 @@
 
     @include assert('Should add boilerplate table cell styling') {
 
-      @include output {
+      @include input {
         @include cell;
       }
 
@@ -33,7 +33,7 @@
 
     @include assert('Should add boilerplate table row styling') {
 
-      @include output {
+      @include input {
         @include row;
       }
 

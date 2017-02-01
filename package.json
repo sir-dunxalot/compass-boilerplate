@@ -39,7 +39,7 @@
     "mocha": "^2.3.3",
     "node-sass": "^3.3.3",
     "sass-lint": "^1.2.3",
-    "sass-true": "^2.1.4"
+    "sass-true": "2.0.3"
   },
   "dependencies": {
     "compass-mixins": "^0.12.7"
